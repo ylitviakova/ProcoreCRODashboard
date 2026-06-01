@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Market & Competitive Intelligence · Procore × Databook</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="shared.js"></script>
+<style id="s"></style>
+</head>
+<body>
+<div id="nav"></div><div id="hdr"></div>
+<main class="main">
+
+<div class="kpi-grid grid-4 fi d1 mb-20">
+  <div class="kpi-card"><div class="kpi-label">Overall Win Rate</div><div class="kpi-value">61%</div><div class="kpi-meta"><span class="kpi-trend down">↓ 44% with Owner CFO buyer</span><span class="db-badge">DB</span></div><div class="kpi-sub">vs. Autodesk Construction Cloud</div></div>
+  <div class="kpi-card" style="border-color:var(--danger-border);"><div class="kpi-label">Top Loss Reason</div><div class="kpi-value" style="font-size:18px;color:var(--danger);">Business Case</div><div class="kpi-meta"><span class="tag tag-red" style="font-size:10px;">31% of losses</span></div><div class="kpi-sub">Exactly what Databook solves</div></div>
+  <div class="kpi-card"><div class="kpi-label">Avg Discount Depth</div><div class="kpi-value">14.2%</div><div class="kpi-meta"><span class="kpi-trend down">▲ +3.2pts over 4 quarters</span></div><div class="kpi-sub">Discounting is creeping up</div></div>
+  <div class="kpi-card"><div class="kpi-label">Construction IT Budget</div><div class="kpi-value">2.7%</div><div class="kpi-meta"><span class="kpi-trend down">vs. 5.5% industry avg</span><span class="crm-badge">MARKET</span></div><div class="kpi-sub">Least digitized major industry</div></div>
+</div>
+
+<!-- MARKET CONTEXT BANNER -->
+<div class="card fi d2 mb-20" style="background:linear-gradient(135deg,var(--surface-2),var(--surface));border-color:var(--border-2);">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+    <div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--text-3);margin-bottom:8px;">Construction Market Context</div>
+      <div style="font-size:13px;color:var(--text-2);line-height:1.7;">Construction is a <strong style="color:var(--text);">$10T+ global industry</strong> and the least digitized major sector. Software budgets at only <strong style="color:var(--text);">2.7% of revenue</strong> vs. 5.5% industry average. This creates buyer skepticism — making Databook's ROI-first narrative essential for every enterprise deal.</div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--text-3);margin-bottom:8px;">Analyst Positioning</div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div style="display:flex;align-items:center;gap:8px;"><span class="tag tag-green" style="font-size:10px;">BUY · $95</span><span style="font-size:12px;color:var(--text-2);">Jefferies — Rule of 40 + International</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span class="tag tag-purple" style="font-size:10px;">OW · $76</span><span style="font-size:12px;color:var(--text-2);">KeyBanc — Operational execution</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span class="tag tag-blue" style="font-size:10px;">OUTPERFORM</span><span style="font-size:12px;color:var(--text-2);">William Blair — FCF compounding</span></div>
+        <div style="margin-top:4px;font-size:11px;color:var(--text-3);">Current: ~$55 · Bull $94–118 · Bear $40</div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--text-3);margin-bottom:8px;">⬡ Live Competitive Signals</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="padding:7px 10px;background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:5px;font-size:11.5px;color:var(--text-2);"><strong style="color:var(--danger);">AUTODESK:</strong> Rep confirmed x2 contact at Hensel Phelps VP Ops — last 30 days</div>
+        <div style="padding:7px 10px;background:var(--warning-bg);border:1px solid var(--warning-border);border-radius:5px;font-size:11.5px;color:var(--text-2);"><strong style="color:var(--warning);">ORACLE:</strong> 14 new EMEA sales engineer hires — accelerating European push</div>
+        <div style="padding:7px 10px;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;font-size:11.5px;color:var(--text-2);"><strong style="color:var(--text-2);">TRIMBLE:</strong> WorksOS AI rebranding announced — not a near-term threat</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WIN/LOSS + LOSS STAGE -->
+<div class="grid-2 fi d3 mb-20">
+  <div class="card">
+    <div class="section-header"><div><div class="section-title">Win Rate vs. Competitors by Buyer Persona</div><div class="section-sub">Procore wins with GC ops leaders — gap widens with Owner CFO buyers</div></div></div>
+    <div class="chart-wrap" style="height:250px;"><canvas id="winChart"></canvas></div>
+    <div style="margin-top:10px;padding:8px 12px;background:var(--purple-light);border-radius:6px;font-size:11.5px;color:var(--text-2);">
+      <strong style="color:var(--purple);">⬡ DATABOOK:</strong> Win rate vs. Autodesk drops 17 ppts when the primary buyer is an Owner CFO (61% → 44%). Databook's executive intelligence enables reps to lead with financial ROI before Autodesk reaches technical features — closing this gap.
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-header"><div><div class="section-title">Where Deals Are Lost</div><div class="section-sub">55% of losses at Business Case and Executive Alignment — Databook directly addresses both</div></div></div>
+    <div class="chart-wrap" style="height:200px;"><canvas id="lossChart"></canvas></div>
+    <div style="margin-top:10px;padding:8px 12px;background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:6px;font-size:11.5px;color:var(--text-2);">
+      <strong style="color:var(--danger);">⬡ KEY INSIGHT:</strong> Procore sellers lose more deals to <strong>bad storytelling than inferior product.</strong> Business Case (31%) + Executive Alignment (24%) = the exact problems Databook's Value Knowledge Graph is built to solve.
+    </div>
+  </div>
+</div>
+
+<!-- COMPETITIVE LANDSCAPE MATRIX -->
+<div class="card fi d4 mb-20">
+  <div class="section-header"><div><div class="section-title">Competitive Landscape Matrix</div><div class="section-sub">Updated via Databook's 40+ real-time data sources — public filings, job postings, G2/Gartner reviews, LinkedIn signals</div></div><span class="db-badge">DATABOOK LIVE</span></div>
+  <table class="data-table" style="font-size:11.5px;">
+    <thead><tr><th>Competitor</th><th>GC Win Rate</th><th>Owner Win Rate</th><th>AI Maturity</th><th>Key Strength</th><th>Key Weakness</th><th>⬡ Signal (Last 30 Days)</th></tr></thead>
+    <tbody>
+      <tr style="background:#FAFAFA;"><td><strong style="color:var(--purple);">Procore ★</strong></td><td><span class="mono fw-700" style="color:var(--success);">61%</span></td><td><span class="mono fw-700" style="color:var(--warning);">44%</span></td><td><div style="display:flex;gap:2px;margin-bottom:2px;"><div style="width:8px;height:8px;border-radius:1px;background:var(--purple);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--purple);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--purple);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--purple);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--purple);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--purple);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--purple);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div></div><div style="font-size:9.5px;color:var(--text-3);">7/10 — Helix/Datagrid</div></td><td style="font-size:11px;">Platform breadth, data moat, 3M+ users</td><td><span class="tag tag-amber" style="font-size:10px;">Scheduling weakness</span></td><td style="font-size:11px;">AI Agents Q3 2026; Datagrid integrated; Procore Pay displacing Textura</td></tr>
+      <tr><td><strong>Autodesk CC</strong></td><td><span class="mono fw-600" style="color:var(--warning);">39%</span></td><td><span class="mono fw-600" style="color:var(--warning);">56%</span></td><td><div style="display:flex;gap:2px;margin-bottom:2px;"><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div></div><div style="font-size:9.5px;color:var(--text-3);">7/10 — Forma AI</div></td><td style="font-size:11px;">BIM/Revit design relationships, VDC personas</td><td><span class="tag tag-green" style="font-size:10px;">Acquired platform feel</span></td><td style="font-size:11px;color:var(--danger);">⬡ Rep x2 at Hensel Phelps VP Ops in 30 days — ESCALATE</td></tr>
+      <tr><td><strong>Oracle Aconex</strong></td><td><span class="mono fw-600" style="color:var(--danger);">28%</span></td><td><span class="mono fw-600" style="color:var(--warning);">41%</span></td><td><div style="display:flex;gap:2px;margin-bottom:2px;"><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div></div><div style="font-size:9.5px;color:var(--text-3);">4/10 — Legacy stack</div></td><td style="font-size:11px;">Government/EMEA relationships, document control</td><td><span class="tag tag-green" style="font-size:10px;">Outdated UX, poor field adoption</span></td><td style="font-size:11px;color:var(--warning);">⬡ 14 new EMEA sales engineer hires — monitoring</td></tr>
+      <tr><td><strong>Trimble (Viewpoint)</strong></td><td><span class="mono fw-600" style="color:var(--danger);">31%</span></td><td><span class="mono fw-600" style="color:var(--danger);">24%</span></td><td><div style="display:flex;gap:2px;margin-bottom:2px;"><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div></div><div style="font-size:9.5px;color:var(--text-3);">3/10 — Basic AI</div></td><td style="font-size:11px;">ERP integration, estimating tools</td><td><span class="tag tag-green" style="font-size:10px;">No credible AI roadmap</span></td><td style="font-size:11px;">WorksOS AI rebranding — mostly cosmetic, not a near-term threat</td></tr>
+      <tr><td><strong>Kahua</strong></td><td><span class="mono fw-600" style="color:var(--danger);">18%</span></td><td><span class="mono fw-600" style="color:var(--warning);">34%</span></td><td><div style="display:flex;gap:2px;margin-bottom:2px;"><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:#6B7280;"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div><div style="width:8px;height:8px;border-radius:1px;background:var(--border-2);"></div></div><div style="font-size:9.5px;color:var(--text-3);">5/10 — AI roadmap</div></td><td style="font-size:11px;">Customization, C-suite narrative, owner focus</td><td><span class="tag tag-green" style="font-size:10px;">Implementation complexity</span></td><td style="font-size:11px;color:var(--warning);">⬡ Investing in agentic AI — watch owner segment closely</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- WIN/LOSS DETAIL + COUNTER-NARRATIVES -->
+<div class="card fi d5 mb-20">
+  <div class="section-header"><div><div class="section-title">Counter-Narrative Playbook <span class="db-badge" style="margin-left:6px;">DATABOOK</span></div><div class="section-sub">How to win against each competitor's strongest objections — grounded in Databook buyer intelligence</div></div></div>
+  <div class="grid-2" style="gap:12px;">
+    <div style="padding:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;">
+      <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px;">vs. Autodesk — "We already have BIM"</div>
+      <div style="font-size:11.5px;color:var(--text-2);line-height:1.65;">Autodesk's strength is design/preconstruction. Procore owns the <em>construction execution</em> phase — where 85% of project costs and risks occur. Lead with financial controls, RFI automation (AI Agents), and Procore Pay vs. Oracle Textura. Databook identifies which Autodesk customers have a VP Operations vs. VDC champion — critical for positioning strategy.</div>
+    </div>
+    <div style="padding:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;">
+      <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px;">vs. Oracle Aconex — "We use Oracle for everything"</div>
+      <div style="font-size:11.5px;color:var(--text-2);line-height:1.65;">Aconex's UX drives poor field adoption — their own customers report this in G2 reviews. Lead with field productivity data and subcontractor network effects. Procore Pay directly replaces Oracle Textura with a faster, lower-fee payment product. Owner segment wins are particularly strong here.</div>
+    </div>
+    <div style="padding:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;">
+      <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px;">vs. Status Quo — "We'll build it ourselves / use Excel"</div>
+      <div style="font-size:11.5px;color:var(--text-2);line-height:1.65;">Construction IT budget at only 2.7% vs. 5.5% industry avg — these buyers are skeptical. Databook surfaces the CFO's own public statements about cost efficiency and digital transformation. Map their stated priorities to a quantified Procore ROI — peer GC benchmarks are the most powerful conversion tool in the category.</div>
+    </div>
+    <div style="padding:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;">
+      <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px;">vs. Trimble — "Our ERP already integrates"</div>
+      <div style="font-size:11.5px;color:var(--text-2);line-height:1.65;">Trimble's field adoption is consistently weak — construction workers don't use it. Procore has 3M+ daily active users in the field, which is Procore's data moat. Lead with field productivity uplift and the AI Agents roadmap — Trimble has no credible AI story in 2026.</div>
+    </div>
+  </div>
+</div>
+
+<div class="insight-panel fi d5">
+  <div class="insight-panel-header"><div class="insight-panel-title">⬡ Market & Competitive Intelligence Brief</div><button class="insight-generate-btn" onclick="generateInsight(this,'Generate a market and competitive intelligence brief for Procore CRO Walt Hearn. Cover: (1) the most urgent competitive threat requiring immediate CRO action — which account, which competitor, exact counter-narrative to deploy; (2) the single best argument against Autodesk\'s BIM relationship advantage in the owner segment, grounded in specific buyer psychology; (3) which two deals Databook intelligence suggests are being unnecessarily discounted — where could pricing discipline be restored without losing the deal; (4) the most important macro market shift in construction digitization that Procore should be proactively messaging to its customer base in Q3 2026. Under 200 words, be direct and commercially sharp.')">Generate</button></div>
+  <div class="insight-content"></div>
+</div>
+
+</main>
+<div id="chat"></div>
+<script>
+document.getElementById('s').textContent = SHARED_CSS;
+document.getElementById('nav').innerHTML = renderNav('market');
+document.getElementById('hdr').innerHTML = renderHeader('Market & Competitive Intelligence','Win/loss analysis · Competitive signals · Counter-narratives');
+document.getElementById('chat').innerHTML = renderChatWidget('market');
+
+const CO={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#1F2937',titleColor:'#F9FAFB',bodyColor:'#9CA3AF',borderColor:'#374151',borderWidth:1,padding:10}}};
+
+new Chart(document.getElementById('winChart'),{type:'bar',data:{
+  labels:['vs. Autodesk','vs. Oracle Aconex','vs. Trimble','vs. Status Quo'],
+  datasets:[
+    {label:'GC VP Operations',data:[61,72,69,58],backgroundColor:'#7C3AED',borderRadius:4},
+    {label:'Owner CFO',data:[44,59,61,41],backgroundColor:'#C4B5FD',borderRadius:4}
+  ]
+},options:{...CO,plugins:{...CO.plugins,legend:{display:true,position:'bottom',labels:{color:'#6B7280',font:{family:'Inter',size:11},boxWidth:10,padding:12}}},scales:{
+  x:{grid:{display:false},ticks:{color:'#9CA3AF',font:{family:'Inter',size:11}}},
+  y:{grid:{color:'rgba(0,0,0,0.05)'},ticks:{color:'#9CA3AF',font:{family:'JetBrains Mono',size:10},callback:v=>v+'%'},min:0,max:100}
+}}});
+
+new Chart(document.getElementById('lossChart'),{type:'doughnut',data:{
+  labels:['Business Case / ROI (31%)','Exec Alignment (24%)','Technical Eval (18%)','Pricing (17%)','No Decision (10%)'],
+  datasets:[{data:[31,24,18,17,10],backgroundColor:['#DC2626','#EF4444','#F97316','#7C3AED','#9CA3AF'],borderColor:'#FFF',borderWidth:3,hoverOffset:6}]
+},options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{display:true,position:'bottom',labels:{color:'#6B7280',font:{family:'Inter',size:10},padding:10,boxWidth:10}},tooltip:{backgroundColor:'#1F2937',titleColor:'#F9FAFB',bodyColor:'#9CA3AF'}}}});
+</script>
+</body>
+</html>

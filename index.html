@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive Command Center · Procore × Databook</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="shared.js"></script>
+<style id="s"></style>
+</head>
+<body>
+<div id="nav"></div><div id="hdr"></div>
+<main class="main">
+
+<!-- GREETING BANNER -->
+<div class="fi d1" style="background:linear-gradient(135deg,var(--purple-light),var(--surface));border:1px solid var(--purple-mid);border-radius:var(--radius);padding:16px 22px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;">
+  <div>
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--purple);margin-bottom:4px;" id="bannerDate">⬡ DATABOOK INTELLIGENCE</div>
+    <div style="font-size:20px;font-weight:700;color:var(--text);" id="greeting">Good morning, Walt. <span style="font-weight:400;color:var(--text-2);" id="bannerDay">Day 60 as CRO.</span></div>
+    <div style="font-size:12.5px;color:var(--text-3);margin-top:3px;max-width:680px;">Procore is re-accelerating <em>and</em> moving upmarket into $1M+ deals won in the C-suite. Three jobs this quarter: <strong style="color:var(--text-2);">defend</strong> at-risk enterprise ARR, <strong style="color:var(--text-2);">capture</strong> owner &amp; data-center expansion, and <strong style="color:var(--text-2);">lift</strong> bottom-quartile reps toward the ~101% attainment of AI-enabled peers.</div>
+  </div>
+  <div style="text-align:right;">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--text-3);margin-bottom:3px;">Q1 2026 Revenue Growth</div>
+    <div style="font-family:var(--mono);font-size:32px;font-weight:700;color:var(--success);line-height:1;">+15.7%</div>
+    <div style="font-size:11px;color:var(--success);margin-top:2px;">▲ 3rd consecutive quarter of acceleration</div>
+  </div>
+</div>
+
+<!-- KPI ROW -->
+<div class="kpi-grid grid-5 fi d2 mb-20">
+  <div class="kpi-card">
+    <div class="kpi-label">Forecast (Commit)</div>
+    <div class="kpi-value">$30.8M</div>
+    <div class="kpi-sparkbar" id="spk"></div>
+    <div class="kpi-sub">Stage 3 → 5 · Q2 FY26</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Forecast vs. Target</div>
+    <div class="kpi-value" style="color:var(--success);">+$2.5M</div>
+    <div class="kpi-meta"><span class="kpi-trend up">▲ Above plan</span></div>
+    <div class="kpi-sub">Apr → Jun trend improving</div>
+  </div>
+  <div class="kpi-card" style="border-color:var(--danger-border);">
+    <div class="kpi-label">Pipeline at Risk <span class="db-badge" style="font-size:8px;margin-left:3px;">DB</span></div>
+    <div class="kpi-value" style="color:var(--danger);">$16.4M</div>
+    <div style="font-size:12px;font-weight:700;color:var(--danger);margin-top:5px;">53% of Commit</div>
+    <div style="display:flex;gap:5px;margin-top:7px;">
+      <div style="width:26px;height:26px;border-radius:5px;background:#FEB2B2;"></div>
+      <div style="width:26px;height:26px;border-radius:5px;background:#FC8181;"></div>
+      <div style="width:26px;height:26px;border-radius:5px;background:#C53030;"></div>
+    </div>
+    <div style="display:flex;gap:10px;font-size:9px;color:var(--text-4);margin-top:4px;"><span>1 high-risk</span><span>2 high-risks</span><span>3+ high-risks</span></div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Q1 2026 Revenue</div>
+    <div class="kpi-value">$359M</div>
+    <div class="kpi-meta"><span class="kpi-trend up">▲ +15.7% YoY</span></div>
+    <div class="kpi-sub">Beat consensus by $6.5M</div>
+  </div>
+  <div class="kpi-card" style="border-color:var(--purple-mid);">
+    <div class="kpi-label">cRPO (Leading) <span class="db-badge" style="font-size:8px;">DB</span></div>
+    <div class="kpi-value" style="color:var(--purple);">$1.02B</div>
+    <div class="kpi-meta"><span class="kpi-trend up">▲ +21% YoY</span></div>
+    <div class="kpi-sub">Strong H2 visibility</div>
+  </div>
+</div>
+
+<!-- CRO ACTION CENTER -->
+<div class="card fi d2 mb-20" style="border:1px solid var(--purple-mid);box-shadow:0 4px 14px rgba(124,58,237,0.10);">
+  <div class="section-header">
+    <div>
+      <div class="section-title">CRO Action Center — Your Week <span class="db-badge" style="margin-left:6px;">DATABOOK PRIORITIZED</span></div>
+      <div class="section-sub">The four highest-leverage moves right now, ranked. Each is something you can start this week.</div>
+    </div>
+    <div style="text-align:right;"><div style="font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--text-3);">Total $ in motion</div><div class="mono" style="font-size:18px;font-weight:700;color:var(--purple);">$19.2M near-term</div></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px;" id="actionCenter"></div>
+</div>
+
+<!-- FY26 STRATEGIC GOALS -->
+<div class="card fi d3 mb-20">
+  <div class="section-header">
+    <div>
+      <div class="section-title">FY26 Strategic Priorities — The CRO Agenda</div>
+      <div class="section-sub">Beyond this week: the four pillars that define success for the year, and how Databook intelligence supports each</div>
+    </div>
+  </div>
+  <div class="grid-4" id="fy26Goals" style="gap:14px;"></div>
+</div>
+
+<!-- RISK TABLE -->
+<div class="card fi d3 mb-20">
+  <div class="section-header">
+    <div>
+      <div class="section-title">Most Common Risks <span class="db-badge" style="margin-left:6px;">DATABOOK INTELLIGENCE</span></div>
+      <div class="section-sub">Pipeline risks across Q2 FY26 — surfaced 45–60 days before formal RFPs</div>
+    </div>
+    <a href="revenue-pipeline.html" style="font-size:12px;color:var(--purple);font-weight:600;text-decoration:none;">View pipeline →</a>
+  </div>
+  <table class="data-table">
+    <thead><tr><th>Risk</th><th>Total Value</th><th># Deals</th><th>Q2 Accounts</th><th>Recommended Action</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag tag-coral">No VP+ Level meetings</span></td><td class="mono fw-600">$10.3M</td><td>18</td><td style="color:var(--text-2);">Hensel Phelps · Turner Construction</td><td style="font-size:12px;font-weight:600;color:var(--purple);">Schedule exec outreach this week</td></tr>
+      <tr><td><span class="tag tag-orange">Board priority misalignment</span></td><td class="mono fw-600">$8.1M</td><td>14</td><td style="color:var(--text-2);">Skanska · Balfour Beatty</td><td style="font-size:12px;font-weight:600;color:var(--purple);">Reframe to CFO priorities</td></tr>
+      <tr><td><span class="tag tag-red">Executive PoV gap</span></td><td class="mono fw-600">$4.9M</td><td>8</td><td style="color:var(--text-2);">Gilbane · DPR Construction</td><td style="font-size:12px;font-weight:600;color:var(--purple);">Generate Databook exec brief</td></tr>
+      <tr><td><span class="tag tag-red">Competitor surge</span></td><td class="mono fw-600">$4.1M</td><td>7</td><td style="color:var(--text-2);">Hensel Phelps · McCarthy</td><td style="font-size:12px;font-weight:600;color:var(--danger);">CRO escalation required ← YOU</td></tr>
+      <tr><td><span class="tag tag-amber">New Executive installed</span></td><td class="mono fw-600">$2.0M</td><td>5</td><td style="color:var(--text-2);">Gilbane · CBRE</td><td style="font-size:12px;font-weight:600;color:var(--purple);">New relationship brief</td></tr>
+      <tr><td><span class="tag tag-gray">No Mutual Action Plan</span></td><td class="mono fw-600">$0.4M</td><td>1</td><td style="color:var(--text-2);">Webcor Builders</td><td style="font-size:12px;font-weight:600;color:var(--text-3);">Attach MAP this week</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- BEFORE/AFTER + REVENUE CHART -->
+<div class="grid-2 fi d4 mb-20">
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div style="padding:14px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+      <div class="section-title">Day in the Life — Enterprise AE</div>
+      <span class="tag tag-purple" style="font-size:10px;">Turner Construction prep</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;">
+      <div style="padding:16px 18px;border-right:1px solid var(--border);">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--text-3);margin-bottom:10px;">Without Databook</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;gap:8px;"><span style="font-family:var(--mono);font-size:9.5px;color:var(--text-4);min-width:38px;padding-top:2px;">7:30a</span><div style="flex:1;padding:5px 9px;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;font-size:11.5px;color:var(--text-2);">Pull CRM data <span style="color:var(--text-4);">30m</span></div></div>
+          <div style="display:flex;gap:8px;"><span style="font-family:var(--mono);font-size:9.5px;color:var(--text-4);min-width:38px;padding-top:2px;">8:00</span><div style="flex:1;padding:5px 9px;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;font-size:11.5px;color:var(--text-2);">Google news research <span style="color:var(--text-4);">45m</span></div></div>
+          <div style="display:flex;gap:8px;"><span style="font-family:var(--mono);font-size:9.5px;color:var(--text-4);min-width:38px;padding-top:2px;">8:45</span><div style="flex:1;padding:5px 9px;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;font-size:11.5px;color:var(--text-2);">Read earnings transcript <span style="color:var(--text-4);">60m</span></div></div>
+          <div style="display:flex;gap:8px;"><span style="font-family:var(--mono);font-size:9.5px;color:var(--text-4);min-width:38px;padding-top:2px;">9:45</span><div style="flex:1;padding:5px 9px;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;font-size:11.5px;color:var(--text-2);">Generic PPT account plan <span style="color:var(--text-4);">90m</span></div></div>
+        </div>
+        <div style="margin-top:10px;padding:7px 10px;background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:5px;font-size:11px;color:var(--danger);font-weight:600;">⏱ 4h 15m non-selling prep</div>
+      </div>
+      <div style="padding:16px 18px;background:linear-gradient(135deg,#F5F3FF,#FAFAFA);">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--purple);margin-bottom:10px;">⬡ With Databook</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;gap:8px;"><span style="font-family:var(--mono);font-size:9.5px;color:var(--purple);min-width:38px;padding-top:2px;">7:30a</span><div style="flex:1;padding:5px 9px;background:var(--purple-light);border:1px solid var(--purple-mid);border-radius:5px;font-size:11.5px;color:var(--text-2);">Databook brief: health + exec map <span style="color:var(--success);">5m</span></div></div>
+          <div style="display:flex;gap:8px;"><span style="font-family:var(--mono);font-size:9.5px;color:var(--purple);min-width:38px;padding-top:2px;">7:35</span><div style="flex:1;padding:5px 9px;background:var(--purple-light);border:1px solid var(--purple-mid);border-radius:5px;font-size:11.5px;color:var(--text-2);">AI surfaces CFO margin signal → Financial ROI narrative <span style="color:var(--success);">8m</span></div></div>
+          <div style="display:flex;gap:8px;"><span style="font-family:var(--mono);font-size:9.5px;color:var(--purple);min-width:38px;padding-top:2px;">7:43</span><div style="flex:1;padding:5px 9px;background:var(--purple-light);border:1px solid var(--purple-mid);border-radius:5px;font-size:11.5px;color:var(--text-2);">Exec narrative mapped to CFO's 3 priorities <span style="color:var(--success);">7m</span></div></div>
+          <div style="display:flex;gap:8px;"><span style="font-family:var(--mono);font-size:9.5px;color:var(--success);min-width:38px;padding-top:2px;font-weight:700;">8:00</span><div style="flex:1;padding:5px 9px;background:var(--success-bg);border:1px solid var(--success-border);border-radius:5px;font-size:11.5px;color:var(--success);font-weight:600;">SELLING. Exec meeting confirmed. ⚡</div></div>
+        </div>
+        <div style="margin-top:10px;padding:7px 10px;background:var(--success-bg);border:1px solid var(--success-border);border-radius:5px;font-size:11px;color:var(--success);font-weight:600;">30 min total · $4.1M recovered capacity/yr</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-header">
+      <div><div class="section-title">Revenue Trajectory</div><div class="section-sub">Re-acceleration confirmed — 3 consecutive quarters</div></div>
+      <span class="tag tag-green" style="font-size:10px;">▲ Re-accelerating</span>
+    </div>
+    <div class="chart-wrap" style="height:210px;">
+      <canvas id="revChart"></canvas>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:10px;font-size:11px;color:var(--text-3);">
+      <span style="display:flex;align-items:center;gap:5px;"><span style="width:14px;height:3px;background:var(--purple);display:inline-block;border-radius:2px;"></span>Actual / Consensus</span>
+      <span style="display:flex;align-items:center;gap:5px;"><span style="width:14px;height:2px;background:var(--purple-mid);display:inline-block;border-radius:2px;border-top:2px dashed var(--purple-mid);"></span>Databook Upside</span>
+    </div>
+  </div>
+</div>
+
+<!-- SEGMENT + AI BRIEF -->
+<div class="grid-2 fi d5 mb-20">
+  <div class="card">
+    <div class="section-header"><div><div class="section-title">ACV Mix by Segment</div><div class="section-sub">Owners at 25% ACV — only ~3% of logo TAM penetrated</div></div></div>
+    <div class="chart-wrap" style="height:190px;"><canvas id="segChart"></canvas></div>
+    <div style="margin-top:12px;padding:10px 14px;background:var(--purple-light);border-radius:7px;border:1px solid var(--purple-mid);font-size:11.5px;color:var(--text-2);">
+      <strong style="color:var(--purple);">⬡ DATABOOK:</strong> Owner CFOs require a <strong>financial ROI narrative</strong> built from their capital allocation priorities — not a product demo. Databook's Value Knowledge Graph is purpose-built for this buyer.
+    </div>
+  </div>
+  <div class="insight-panel" style="margin-top:0;align-self:start;">
+    <div class="insight-panel-header">
+      <div class="insight-panel-title">⬡ Executive Brief Generator</div>
+      <button class="insight-generate-btn" onclick="generateInsight(this,'Generate a concise Monday morning executive brief for Walt Hearn, CRO of Procore Technologies, for the week of May 28, 2026 (Day 60 as CRO). Cover: (1) the single most urgent deal requiring CRO personal intervention — name the account and the specific action; (2) the highest-value growth opportunity actionable this quarter with estimated ARR impact; (3) one GTM transformation action to accelerate the S&M efficiency journey from 35.2% toward the 18% peer median; (4) the most important Databook intelligence signal that could change a deal outcome this week. Be direct, specific, commercially sharp. Under 180 words.')">Generate</button>
+    </div>
+    <div style="font-size:11.5px;color:var(--text-3);margin-bottom:12px;">Walt Hearn · CRO · Day 60 · Week of May 28</div>
+    <div class="insight-content"></div>
+    <div style="font-size:10.5px;color:var(--text-4);margin-top:10px;">Powered by Databook Intelligence × Anthropic Claude</div>
+  </div>
+</div>
+
+</main>
+<div id="chat"></div>
+<script>
+document.getElementById('s').textContent = SHARED_CSS;
+document.getElementById('nav').innerHTML = renderNav('index');
+document.getElementById('hdr').innerHTML = renderHeader('Executive Command Center','Quarterly tracking · '+fiscalQ());
+document.getElementById('chat').innerHTML = renderChatWidget('index');
+
+// Dynamic dates — always reflect today
+document.getElementById('bannerDate').textContent = '⬡ DATABOOK INTELLIGENCE · ' + todayShort().toUpperCase();
+document.getElementById('bannerDay').textContent = 'Day ' + croDay() + ' as CRO.';
+(function(){ var h=_today().getHours(); var greet=h<12?'Good morning':h<18?'Good afternoon':'Good evening'; var g=document.getElementById('greeting'); g.childNodes[0].textContent = greet+', Walt. '; })();
+
+// CRO Action Center — the prioritized "what to do this week" hero
+const actions = [
+  { rank:'1', type:'DEFEND', color:'var(--danger)', bg:'#FFF5F5', border:'#FECACA',
+    insight:'Autodesk is actively courting Hensel Phelps ($1.4M), and McCarthy\'s champion just left with 31 days to renewal.',
+    action:'Personally engage both this week — exec dinner at Hensel Phelps, emergency champion-rebuild at McCarthy.',
+    impact:'Protect $2.3M ARR', when:'This week' },
+  { rank:'2', type:'CAPTURE', color:'var(--success)', bg:'#ECFDF5', border:'#6EE7B7',
+    insight:'Strong expansion signals at Brookfield (capex +34%), Clark (AI-ready), Prologis (new CIO). Owners buy on financial ROI, not demos.',
+    action:'Direct the enterprise team to lead owner deals with CFO financial narratives; greenlight the Financial Mgmt → Procore Pay bundle on 94 qualifying GCs.',
+    impact:'$16.9M cross-sell pipeline', when:'This quarter' },
+  { rank:'3', type:'ACTIVATE', color:'var(--purple)', bg:'#F5F3FF', border:'var(--purple-mid)',
+    insight:'Procore AI attach is only ~7%. The dedicated overlay team is live and broad rollout lands Q3 — top propensity: Clark, Brookfield, Turner.',
+    action:'Align AI overlay specialists on the 5 highest-propensity accounts now, ahead of the Q3 GA, to seed reference wins.',
+    impact:'$2.8B AI TAM', when:'Pre-Q3' },
+];
+const ac = document.getElementById('actionCenter');
+actions.forEach(a=>{
+  ac.innerHTML += `<div style="display:flex;align-items:stretch;gap:14px;padding:13px 16px;background:${a.bg};border:1px solid ${a.border};border-radius:9px;">
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:54px;border-right:1px solid ${a.border};padding-right:14px;">
+      <div class="mono" style="font-size:22px;font-weight:700;color:${a.color};line-height:1;">${a.rank}</div>
+      <div style="font-size:9px;font-weight:700;letter-spacing:.6px;color:${a.color};margin-top:3px;">${a.type}</div>
+    </div>
+    <div style="flex:1;">
+      <div style="font-size:12px;color:var(--text-3);margin-bottom:4px;">${a.insight}</div>
+      <div style="font-size:13px;font-weight:600;color:var(--text);">→ ${a.action}</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:center;min-width:140px;text-align:right;border-left:1px solid ${a.border};padding-left:14px;">
+      <div class="mono" style="font-size:13px;font-weight:700;color:${a.color};">${a.impact}</div>
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-3);margin-top:3px;">${a.when}</div>
+    </div>
+  </div>`;
+});
+
+// FY26 Strategic Priorities — the four-pillar CRO agenda
+const goals = [
+  { num:'01', color:'var(--success)', accent:'#ECFDF5',
+    title:'Durable, Profitable Growth',
+    body:'Lean into the high-growth enterprise cohort (>$100K and >$1M ARR), hold pipeline stability, and protect best-in-class retention.',
+    metrics:[['NRR','106%'],['GRR','95%'],['>$1M ARR logos','115']],
+    db:'Databook prioritizes the enterprise cohort and surfaces expansion signals before renewal.' },
+  { num:'02', color:'var(--danger)', accent:'#FEF2F2',
+    title:'Navigate Market & Competition',
+    body:'Defend against Autodesk, widen the construction data moat, and manage pricing friction so discounting doesn\'t creep.',
+    metrics:[['Win vs. ADSK','61%'],['Avg discount','14.2%'],['Active threats','3']],
+    db:'Databook flags competitor moves and arms reps with counter-narratives at the executive level.' },
+  { num:'03', color:'var(--purple)', accent:'#F5F3FF',
+    title:'Pursue Whitespace',
+    body:'Penetrate the Owner segment, expand internationally, scale Procore AI, and grow newer products like Procore Pay and Scheduling.',
+    metrics:[['Owner TAM','$8.2B'],['Intl. mix','15%'],['AI attach','~7%']],
+    db:'Databook maps owner CFOs to financial ROI narratives and ranks AI-adoption propensity.' },
+  { num:'04', color:'var(--blue)', accent:'#EFF6FF',
+    title:'Empower the GTM Engine',
+    body:'Raise rep productivity, lift pipeline conversion, and tailor sales motions by segment and buyer persona.',
+    metrics:[['Qualified→Won','9%'],['S&M / rev','35.2%'],['Pipeline cov.','3.1×']],
+    db:'Databook recovers selling time and scales top-rep best practices across the team.' },
+];
+const gc = document.getElementById('fy26Goals');
+goals.forEach(g=>{
+  const m = g.metrics.map(x=>`<div style="display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px dashed var(--border);"><span style="font-size:10.5px;color:var(--text-3);">${x[0]}</span><span class="mono" style="font-size:12px;font-weight:700;color:var(--text);">${x[1]}</span></div>`).join('');
+  gc.innerHTML += `<div style="display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-top:3px solid ${g.color};border-radius:9px;padding:16px;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+      <span class="mono" style="font-size:13px;font-weight:700;color:${g.color};">${g.num}</span>
+      <span style="font-size:13px;font-weight:700;color:var(--text);line-height:1.2;">${g.title}</span>
+    </div>
+    <div style="font-size:11.5px;color:var(--text-2);line-height:1.55;margin-bottom:12px;flex:1;">${g.body}</div>
+    <div style="margin-bottom:12px;">${m}</div>
+    <div style="padding:8px 10px;background:${g.accent};border-radius:6px;font-size:10.5px;color:var(--text-2);line-height:1.5;"><span style="color:var(--purple);font-weight:700;">⬡ </span>${g.db}</div>
+  </div>`;
+});
+
+// Sparkbars
+const sp = document.getElementById('spk');
+[3,4,5,5,6,7,9,10].forEach((v,i,a)=>{const b=document.createElement('div');b.className='kpi-bar'+(i===a.length-1?' last':'');b.style.height=(v*4)+'px';sp.appendChild(b);});
+
+// Revenue chart
+const CHART_DEFAULTS = { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{backgroundColor:'#1F2937',titleColor:'#F9FAFB',bodyColor:'#9CA3AF',borderColor:'#374151',borderWidth:1,padding:10} } };
+const SCALE_X = { grid:{display:false}, ticks:{color:'#9CA3AF',font:{family:'Inter',size:10}} };
+const SCALE_Y_PCT = { grid:{color:'rgba(0,0,0,0.05)'}, ticks:{color:'#9CA3AF',font:{family:'JetBrains Mono',size:10},callback:v=>v+'%'} };
+const SCALE_Y_M = { grid:{color:'rgba(0,0,0,0.05)'}, ticks:{color:'#9CA3AF',font:{family:'JetBrains Mono',size:10},callback:v=>'$'+v+'M'} };
+
+new Chart(document.getElementById('revChart'),{type:'line',data:{
+  labels:['Q1\'24','Q2\'24','Q3\'24','Q4\'24','Q1\'25','Q2\'25','Q3\'25','Q4\'25','Q1\'26','Q2\'26E','Q3\'26E','Q4\'26E'],
+  datasets:[
+    {data:[269,284,296,302,311,324,339,349,359,365,383,394],borderColor:'#7C3AED',backgroundColor:'rgba(124,58,237,0.07)',borderWidth:2.5,pointRadius:[2,2,2,2,2,2,2,2,5,2,2,2],pointBackgroundColor:'#7C3AED',fill:true,tension:.35},
+    {data:[null,null,null,null,null,null,null,null,359,375,396,412],borderColor:'#C4B5FD',borderWidth:2,borderDash:[5,4],pointRadius:0,fill:false,tension:.35}
+  ]
+},options:{...CHART_DEFAULTS,scales:{x:SCALE_X,y:{...SCALE_Y_M,min:240}}}});
+
+new Chart(document.getElementById('segChart'),{type:'doughnut',data:{
+  labels:['General Contractors (63%)','Owners (25%)','Specialty / Sub (12%)'],
+  datasets:[{data:[63,25,12],backgroundColor:['#7C3AED','#A78BFA','#DDD6FE'],borderColor:'#FFF',borderWidth:3,hoverOffset:6}]
+},options:{responsive:true,maintainAspectRatio:false,cutout:'70%',plugins:{legend:{position:'bottom',labels:{color:'#6B7280',font:{family:'Inter',size:12},padding:16,boxWidth:10,boxHeight:10,borderRadius:3}},tooltip:{backgroundColor:'#1F2937',titleColor:'#F9FAFB',bodyColor:'#9CA3AF'}}}});
+</script>
+</body>
+</html>

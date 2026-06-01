@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Revenue & Pipeline Intelligence · Procore × Databook</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="shared.js"></script>
+<style id="s"></style>
+</head>
+<body>
+<div id="nav"></div><div id="hdr"></div>
+<main class="main">
+
+<!-- HEADLINE KPI ROW -->
+<div class="kpi-grid grid-5 fi d1 mb-20">
+  <div class="kpi-card">
+    <div class="kpi-label">Q1 FY26 Revenue <span class="crm-badge">ACTUAL</span></div>
+    <div class="kpi-value" style="font-size:24px;">$359M</div>
+    <div class="kpi-meta"><span class="kpi-trend up">▲ +15.7% YoY</span></div>
+    <div class="kpi-sub">Beat consensus by $6.5M</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">FY26E Revenue <span class="crm-badge">GUIDED</span></div>
+    <div class="kpi-value" style="font-size:24px;">$1.50B</div>
+    <div class="kpi-meta"><span class="kpi-trend up">▲ +13.5%</span></div>
+    <div class="kpi-sub">FY25 actual: $1.32B (+14.8%)</div>
+  </div>
+  <div class="kpi-card" style="border-color:var(--success-border);">
+    <div class="kpi-label">Revenue Forecast vs. Target</div>
+    <div class="kpi-value" style="font-size:24px;color:var(--success);">+$2.5M</div>
+    <div class="kpi-meta"><span class="kpi-trend up">▲ Above plan</span></div>
+    <div class="kpi-sub">Q2 FY26 commit tracking ahead</div>
+  </div>
+  <div class="kpi-card" style="border-color:var(--success-border);">
+    <div class="kpi-label">FCF Forecast vs. Target</div>
+    <div class="kpi-value" style="font-size:24px;color:var(--success);">+$6M</div>
+    <div class="kpi-meta"><span class="kpi-trend up">▲ Ahead of plan</span></div>
+    <div class="kpi-sub">CFO North Star · FY26E ~$285M (19%)</div>
+  </div>
+  <div class="kpi-card" style="border-color:var(--purple-mid);">
+    <div class="kpi-label">cRPO <span class="db-badge" style="font-size:8px;">DB</span></div>
+    <div class="kpi-value" style="font-size:24px;color:var(--purple);">$1.02B</div>
+    <div class="kpi-meta"><span class="kpi-trend up">▲ +21% YoY</span></div>
+    <div class="kpi-sub">Leading revenue visibility</div>
+  </div>
+</div>
+
+<!-- MOVING UPMARKET + GROWTH TREND -->
+<div class="grid-2 fi d2 mb-20">
+  <!-- ARR Cohort / Moving Upmarket -->
+  <div class="card">
+    <div class="section-header">
+      <div><div class="section-title">Moving Upmarket — ARR Cohort Analysis</div><div class="section-sub">As Procore climbs to $1M+ accounts, deals require C-suite engagement — exactly where Databook intel matters</div></div>
+      <span class="db-badge">DATABOOK</span>
+    </div>
+    <div class="chart-wrap" style="height:150px;"><canvas id="cohortChart"></canvas></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;">
+      <div style="padding:11px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;">
+        <div style="font-size:11px;color:var(--text-3);margin-bottom:3px;">Customers &gt; $100K ARR</div>
+        <div style="display:flex;align-items:baseline;gap:8px;"><span class="mono" style="font-size:20px;font-weight:700;color:var(--text);">2,795</span><span class="kpi-trend up" style="font-size:11px;">▲ +16% YoY</span></div>
+        <div style="font-size:11px;color:var(--text-3);margin-top:3px;">~67% of total revenue</div>
+      </div>
+      <div style="padding:11px 14px;background:var(--purple-light);border:1px solid var(--purple-mid);border-radius:8px;">
+        <div style="font-size:11px;color:var(--purple);margin-bottom:3px;">Customers &gt; $1M ARR</div>
+        <div style="display:flex;align-items:baseline;gap:8px;"><span class="mono" style="font-size:20px;font-weight:700;color:var(--purple);">115</span><span class="kpi-trend up" style="font-size:11px;">▲ fastest-growing</span></div>
+        <div style="font-size:11px;color:var(--text-3);margin-top:3px;">~19% of total revenue</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:10px;">
+      <div style="flex:1;padding:10px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;">
+        <div><div style="font-size:11px;color:var(--text-3);">Net Revenue Retention</div><div style="font-size:10px;color:var(--text-4);">Volume-contract compression</div></div>
+        <div style="text-align:right;"><span class="mono" style="font-size:18px;font-weight:700;color:var(--text);">106%</span></div>
+      </div>
+      <div style="flex:1;padding:10px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;">
+        <div><div style="font-size:11px;color:var(--text-3);">Gross Revenue Retention</div><div style="font-size:10px;color:var(--text-4);">Best-in-class stickiness</div></div>
+        <div style="text-align:right;"><span class="mono" style="font-size:18px;font-weight:700;color:var(--success);">95%</span></div>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding:10px 14px;background:var(--purple-light);border-radius:7px;border:1px solid var(--purple-mid);font-size:11.5px;color:var(--text-2);">
+      <strong style="color:var(--purple);">⬡ THE UPMARKET THESIS:</strong> The $1M+ cohort is Procore's fastest-growing and highest-retention tier — but these deals are won or lost in the C-suite. Databook is the engine for engaging the CFO and economic buyer with a financial narrative, not a feature demo.
+    </div>
+  </div>
+
+  <!-- Revenue Growth Quarterly Trend -->
+  <div class="card">
+    <div class="section-header">
+      <div><div class="section-title">Revenue Growth — Quarterly Trend</div><div class="section-sub">3 straight quarters of YoY acceleration through Q1'26; consensus models a conservative H2</div></div>
+    </div>
+    <div class="chart-wrap" style="height:200px;"><canvas id="growthChart"></canvas></div>
+    <div style="display:flex;gap:14px;margin-top:8px;font-size:11px;color:var(--text-3);flex-wrap:wrap;">
+      <span style="display:flex;align-items:center;gap:5px;"><span style="width:11px;height:11px;background:var(--success);display:inline-block;border-radius:2px;"></span>Accelerating actuals</span>
+      <span style="display:flex;align-items:center;gap:5px;"><span style="width:11px;height:11px;background:#A78BFA;display:inline-block;border-radius:2px;"></span>Prior actuals</span>
+      <span style="display:flex;align-items:center;gap:5px;"><span style="width:11px;height:11px;background:#DDD6FE;display:inline-block;border-radius:2px;"></span>Consensus est. (conservative)</span>
+    </div>
+    <div style="margin-top:10px;padding:9px 13px;background:var(--surface-2);border:1px solid var(--border);border-radius:7px;font-size:11.5px;color:var(--text-2);">
+      <strong style="color:var(--text);">Key insight:</strong> Trailing growth rose Q3'25 → Q4'25 → Q1'26 (14.5% → 15.6% → 15.7%). Sell-side consensus then models deceleration to ~13% in H2 — a deliberately conservative back half. The <strong style="color:var(--purple);">Databook upside case</strong> is that strong cRPO (+21%) and AI attach sustain mid-teens growth.
+    </div>
+  </div>
+</div>
+
+<!-- AT-RISK DEAL RADAR -->
+<div class="card fi d3 mb-20">
+  <div class="section-header">
+    <div><div class="section-title">⚡ At-Risk Deal Radar <span class="db-badge" style="margin-left:6px;">DATABOOK LIVE SIGNALS</span></div><div class="section-sub">Buyer stress signals surfaced 45–60 days before formal RFPs — time to act is now</div></div>
+    <a href="market-competitive.html" style="font-size:12px;color:var(--purple);font-weight:600;text-decoration:none;">View competitive intel →</a>
+  </div>
+  <div id="riskCards" style="display:flex;flex-direction:column;gap:8px;"></div>
+</div>
+
+<!-- PROCORE AI ADOPTION & ATTACH -->
+<div class="card fi d4 mb-20">
+  <div class="section-header">
+    <div><div class="section-title">Procore AI — Adoption &amp; Attach Intelligence <span class="db-badge" style="margin-left:6px;">DATABOOK</span></div><div class="section-sub">Procore now fields a dedicated AI overlay specialist team; broader rollout to the full sales org planned for Q3 FY26 (consumption-based pricing). Databook identifies the highest-propensity AI adopters.</div></div>
+    <span class="tag tag-purple" style="font-size:10px;">Overlay GTM motion</span>
+  </div>
+  <div class="grid-2" style="gap:18px;">
+    <div>
+      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--text-3);margin-bottom:10px;">AI Attach Rate by Segment</div>
+      <div class="chart-wrap" style="height:170px;"><canvas id="aiAttachChart"></canvas></div>
+      <div style="margin-top:10px;padding:10px 14px;background:var(--purple-light);border:1px solid var(--purple-mid);border-radius:7px;font-size:11.5px;color:var(--text-2);">
+        <strong style="color:var(--purple);">⬡ ATTACH SIGNAL:</strong> Overall AI attach is ~7% today and rising fast. ENR Top 10 GCs lead at 12% — their RFI/submittal volume makes AI Agents an easy ROI case. The Q3 FY26 broad rollout is the inflection: Databook flags which accounts have the automation appetite to convert first.
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--text-3);margin-bottom:10px;">Top Strategic Accounts by AI Adoption Propensity</div>
+      <table class="data-table" style="font-size:11.5px;">
+        <thead><tr><th>Account</th><th>⬡ Propensity</th><th>Best-Fit AI Product</th><th>Signal</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Clark Construction</strong></td><td><div style="width:30px;height:30px;border-radius:50%;background:var(--success-bg);border:2px solid var(--success);display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:var(--success);">91</div></td><td><span class="tag tag-purple" style="font-size:10px;">Agents + Helix</span></td><td style="font-size:11px;">4-yr renewal · digital-first program</td></tr>
+          <tr><td><strong>Brookfield AM</strong></td><td><div style="width:30px;height:30px;border-radius:50%;background:var(--success-bg);border:2px solid var(--success);display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:var(--success);">88</div></td><td><span class="tag tag-purple" style="font-size:10px;">Compliance Agent</span></td><td style="font-size:11px;">Data center buildout · automation appetite</td></tr>
+          <tr><td><strong>Turner Construction</strong></td><td><div style="width:30px;height:30px;border-radius:50%;background:var(--success-bg);border:2px solid var(--success);display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:var(--success);">85</div></td><td><span class="tag tag-purple" style="font-size:10px;">RFI Agent</span></td><td style="font-size:11px;">High RFI volume · scale GC</td></tr>
+          <tr><td><strong>DPR Construction</strong></td><td><div style="width:30px;height:30px;border-radius:50%;background:var(--success-bg);border:2px solid var(--success);display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:var(--success);">82</div></td><td><span class="tag tag-purple" style="font-size:10px;">Full AI Suite</span></td><td style="font-size:11px;">Innovation-forward · early adopter</td></tr>
+          <tr><td><strong>Suffolk Construction</strong></td><td><div style="width:30px;height:30px;border-radius:50%;background:var(--warning-bg);border:2px solid var(--warning);display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:var(--warning);">79</div></td><td><span class="tag tag-purple" style="font-size:10px;">Agents</span></td><td style="font-size:11px;">Tech-forward GC · "Smart Labor" program</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- EXPANSION ACCOUNTS + FUNNEL/GEO -->
+<div class="grid-2 fi d4 mb-20">
+  <div class="card">
+    <div class="section-header"><div><div class="section-title">Top Expansion Accounts by Propensity</div><div class="section-sub">Scored by Databook's Value Knowledge Graph across 40+ data sources</div></div><span class="db-badge">DATABOOK</span></div>
+    <table class="data-table">
+      <thead><tr><th>Account</th><th>Curr. ARR</th><th>Score</th><th>⬡ Signal</th><th>Expansion Est.</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Brookfield AM</strong><div style="font-size:10px;color:var(--text-3);">Owner</div></td><td class="mono">$890K</td><td><div style="width:32px;height:32px;border-radius:50%;background:var(--success-bg);border:2px solid var(--success);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--success);">94</div></td><td><span class="tag tag-green" style="font-size:10px;">Capex +34% YoY</span></td><td class="mono fw-600" style="color:var(--success);">+$340K</td></tr>
+        <tr><td><strong>Clark Construction</strong><div style="font-size:10px;color:var(--text-3);">ENR Top-5 GC</div></td><td class="mono">$3.2M</td><td><div style="width:32px;height:32px;border-radius:50%;background:var(--success-bg);border:2px solid var(--success);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--success);">91</div></td><td><span class="tag tag-purple" style="font-size:10px;">AI agents Q3 launch</span></td><td class="mono fw-600" style="color:var(--success);">+$480K</td></tr>
+        <tr><td><strong>Prologis</strong><div style="font-size:10px;color:var(--text-3);">Industrial REIT</div></td><td class="mono">$0 prospect</td><td><div style="width:32px;height:32px;border-radius:50%;background:var(--success-bg);border:2px solid var(--success);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--success);">88</div></td><td><span class="tag tag-blue" style="font-size:10px;">New CIO · consolidation</span></td><td class="mono fw-600" style="color:var(--purple);">$1.2M potential</td></tr>
+        <tr><td><strong>CBRE Group</strong><div style="font-size:10px;color:var(--text-3);">Owner — Services</div></td><td class="mono">$210K</td><td><div style="width:32px;height:32px;border-radius:50%;background:var(--success-bg);border:2px solid var(--success);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--success);">81</div></td><td><span class="tag tag-purple" style="font-size:10px;">Platform consolidation</span></td><td class="mono fw-600" style="color:var(--success);">+$890K</td></tr>
+        <tr><td><strong>McCarthy Building</strong><div style="font-size:10px;color:var(--text-3);">ENR Top-15 GC</div></td><td class="mono">$920K</td><td><div style="width:32px;height:32px;border-radius:50%;background:var(--warning-bg);border:2px solid var(--warning);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--warning);">64</div></td><td><span class="tag tag-amber" style="font-size:10px;">Champion departed</span></td><td class="mono fw-600" style="color:var(--warning);">On hold</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div class="card">
+      <div class="section-header"><div><div class="section-title">Pipeline Conversion Funnel</div><div class="section-sub">Each bar = share of originally-qualified accounts still active at that stage (cumulative). The drop between bars is the leakage at that step.</div></div></div>
+      <div id="funnelEl"></div>
+    </div>
+    <div class="card">
+      <div class="section-header"><div><div class="section-title">Revenue by Geography</div><div class="section-sub">International at 15% of revenue vs. ~56% peer average</div></div></div>
+      <div class="chart-wrap" style="height:140px;"><canvas id="geoChart"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- SEGMENT HEALTH -->
+<div class="card fi d5 mb-20">
+  <div class="section-header"><div><div class="section-title">Segment Health Matrix</div><div class="section-sub">Acquire · Retain · Expand — scored across all three go-to-market segments</div></div><span class="db-badge">DATABOOK</span></div>
+  <table class="data-table">
+    <thead><tr><th>Segment</th><th>ACV Mix</th><th style="text-align:center;">Acquire</th><th style="text-align:center;">Retain</th><th style="text-align:center;">Expand</th><th>Key Insight</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Owners</strong></td><td><span class="tag tag-purple" style="font-size:10px;">25%</span></td><td style="text-align:center;"><span style="font-size:16px;font-weight:700;color:var(--danger);">3/10</span><div style="font-size:9.5px;color:var(--text-4);">~3% TAM logo penetration</div></td><td style="text-align:center;"><span style="font-size:16px;font-weight:700;color:var(--warning);">6/10</span></td><td style="text-align:center;"><span style="font-size:16px;font-weight:700;color:var(--warning);">7/10</span></td><td style="font-size:11.5px;color:var(--text-2);">Owner CFOs need financial ROI narrative — not product demo. Databook surfaces their stated capital priorities.</td></tr>
+      <tr><td><strong>General Contractors</strong></td><td><span class="tag tag-purple" style="font-size:10px;">63%</span></td><td style="text-align:center;"><span style="font-size:16px;font-weight:700;color:var(--warning);">5/10</span><div style="font-size:9.5px;color:var(--text-4);">ENR 400 largely saturated</div></td><td style="text-align:center;"><span style="font-size:16px;font-weight:700;color:var(--success);">9/10</span></td><td style="text-align:center;"><span style="font-size:16px;font-weight:700;color:var(--success);">8/10</span></td><td style="font-size:11.5px;color:var(--text-2);">Strong GRR 95%. Growth from volume expansion and module cross-sell — AI Agents is the Q3 FY26 catalyst.</td></tr>
+      <tr><td><strong>Specialty / Sub</strong></td><td><span class="tag tag-purple" style="font-size:10px;">12%</span></td><td style="text-align:center;"><span style="font-size:16px;font-weight:700;color:var(--warning);">6/10</span></td><td style="text-align:center;"><span style="font-size:16px;font-weight:700;color:var(--warning);">7/10</span></td><td style="text-align:center;"><span style="font-size:16px;font-weight:700;color:var(--success);">8/10</span></td><td style="font-size:11.5px;color:var(--text-2);">GC mandate dependency drives acquisition. Procore Pay is the highest-ROI expansion motion here.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="insight-panel fi d5">
+  <div class="insight-panel-header"><div class="insight-panel-title">⬡ Revenue & Pipeline Intelligence Brief</div><button class="insight-generate-btn" onclick="generateInsight(this,'Generate a revenue and pipeline intelligence brief for Procore CRO Walt Hearn. Cover: (1) the most critical pipeline risk this quarter with specific accounts and recommended CRO action; (2) the best expansion motion to recover NRR from 106% toward 110%+, naming specific accounts and modules; (3) what the cRPO growth of 21% signals about H2 2026 revenue visibility versus the conservative consensus estimate of ~13% growth; (4) how Procore AI attach (currently ~7%, with a dedicated overlay specialist team and broad Q3 FY26 rollout) should be accelerated across the strategic account base. Be specific, commercial, under 200 words.')">Generate</button></div>
+  <div class="insight-content"></div>
+</div>
+
+</main>
+<div id="chat"></div>
+<script>
+document.getElementById('s').textContent = SHARED_CSS;
+document.getElementById('nav').innerHTML = renderNav('revenue');
+document.getElementById('hdr').innerHTML = renderHeader('Revenue & Pipeline Intelligence','Pipeline health · ARR cohorts · Procore AI · Forecast');
+document.getElementById('chat').innerHTML = renderChatWidget('revenue');
+
+const CO={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#1F2937',titleColor:'#F9FAFB',bodyColor:'#9CA3AF',borderColor:'#374151',borderWidth:1,padding:10}}};
+const SX={grid:{display:false},ticks:{color:'#9CA3AF',font:{family:'Inter',size:10}}};
+const SYP={grid:{color:'rgba(0,0,0,0.05)'},ticks:{color:'#9CA3AF',font:{family:'JetBrains Mono',size:10},callback:v=>v+'%'}};
+const SYM={grid:{color:'rgba(0,0,0,0.05)'},ticks:{color:'#9CA3AF',font:{family:'JetBrains Mono',size:10},callback:v=>'$'+v+'M'}};
+
+// ARR cohort — horizontal stacked bar of revenue contribution by tier
+new Chart(document.getElementById('cohortChart'),{type:'bar',data:{
+  labels:['Revenue Contribution'],
+  datasets:[
+    {label:'> $1M ARR (115 customers)',data:[19],backgroundColor:'#7C3AED',borderRadius:4},
+    {label:'$100K–$1M ARR (2,680)',data:[48],backgroundColor:'#A78BFA',borderRadius:4},
+    {label:'< $100K ARR',data:[33],backgroundColor:'#DDD6FE',borderRadius:4}
+  ]
+},options:{...CO,indexAxis:'y',plugins:{...CO.plugins,legend:{display:true,position:'bottom',labels:{color:'#6B7280',font:{family:'Inter',size:10.5},boxWidth:10,padding:8}},tooltip:{...CO.plugins.tooltip,callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.raw+'% of revenue'}}},scales:{x:{stacked:true,grid:{display:false},ticks:{color:'#9CA3AF',font:{family:'JetBrains Mono',size:10},callback:v=>v+'%'},max:100},y:{stacked:true,grid:{display:false},ticks:{display:false}}}}});
+
+// Growth trend — honest framing: accel actuals green, prior actuals lavender, estimates light
+new Chart(document.getElementById('growthChart'),{type:'bar',data:{
+  labels:['FY23','FY24','Q1\'25','Q2\'25','Q3\'25','Q4\'25','Q1\'26','Q2\'26E','Q3\'26E','Q4\'26E'],
+  datasets:[{
+    data:[31.9,21.2,15.3,13.9,14.5,15.6,15.7,12.8,13.0,12.8],
+    backgroundColor:['#A78BFA','#A78BFA','#A78BFA','#A78BFA','#059669','#059669','#059669','#DDD6FE','#DDD6FE','#DDD6FE'],
+    borderRadius:4,borderWidth:0
+  },{
+    label:'Databook upside',type:'line',
+    data:[null,null,null,null,null,null,15.7,15.2,15.4,15.1],
+    borderColor:'#7C3AED',borderWidth:2,borderDash:[5,4],pointRadius:0,tension:.35,fill:false
+  }]
+},options:{...CO,plugins:{...CO.plugins,tooltip:{...CO.plugins.tooltip,callbacks:{label:ctx=>(ctx.dataset.label||'YoY growth')+': '+ctx.raw+'%'}}},scales:{x:SX,y:{...SYP,min:0,max:35}}}});
+
+// At-risk deals
+const deals=[
+  {acc:'Hensel Phelps',arr:'$1.4M',days:47,urg:'critical',type:'Competitor Surge',signal:'Autodesk rep met VP Operations twice in 30 days via LinkedIn activity monitoring.',action:'CRO engagement — executive dinner this week'},
+  {acc:'McCarthy Building',arr:'$920K',days:31,urg:'critical',type:'Champion Lost',signal:'SVP Technology departed to Skanska. No warm handoff. 31 days to renewal.',action:'Emergency: identify and activate new champion'},
+  {acc:'Webcor Builders',arr:'$430K',days:22,urg:'critical',type:'No Executive PoV',signal:'Three-way eval: Procore vs. ADSK vs. status quo. Decision maker is CFO, not champion.',action:'CFO-level ROI brief required within 7 days'},
+  {acc:'Skanska USA',arr:'$2.3M',days:90,urg:'at-risk',type:'Board Priority Misalign',signal:'Parent company CFO directing 15% opex review per Q2 earnings. Cost pressure building.',action:'Reframe Procore as cost reduction tool — lead with ROI'},
+  {acc:'Balfour Beatty',arr:'$1.8M',days:85,urg:'at-risk',type:'Executive PoV Gap',signal:'Requested BIM integration enhancements not yet on roadmap. Autodesk pitching native Revit.',action:'Product roadmap transparency session with VP Engineering'},
+  {acc:'JLL',arr:'$1.1M',days:120,urg:'at-risk',type:'New Executive',signal:'New CIO installed Q1 2026. Technology consolidation program underway — opportunity window.',action:'Executive introduction to new CIO this month'},
+];
+const rc=document.getElementById('riskCards');
+deals.forEach(d=>{const c=d.urg==='critical';rc.innerHTML+=`<div style="display:flex;align-items:flex-start;gap:14px;padding:12px 16px;background:${c?'#FFF5F5':'#FFFBEB'};border:1px solid ${c?'#FECACA':'#FDE68A'};border-radius:8px;">
+  <div style="min-width:50px;text-align:center;"><div style="font-family:var(--mono);font-size:22px;font-weight:700;color:${c?'var(--danger)':'var(--warning)'};line-height:1;">${d.days}</div><div style="font-size:9px;color:var(--text-4);text-transform:uppercase;letter-spacing:.5px;">days</div></div>
+  <div style="flex:1;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap;"><strong style="font-size:13px;">${d.acc}</strong><span class="mono" style="font-size:12px;font-weight:700;color:${c?'var(--danger)':'var(--warning)'};">${d.arr}</span><span class="tag ${c?'tag-red':'tag-amber'}" style="font-size:10px;">${c?'🔴 CRITICAL':'🟡 AT RISK'}</span><span class="tag tag-gray" style="font-size:10px;">${d.type}</span></div>
+  <div style="font-size:11.5px;color:var(--text-2);margin-bottom:5px;">${d.signal} <span class="db-badge" style="font-size:7px;">DB</span></div>
+  <div style="font-size:11.5px;font-weight:600;color:${c?'var(--danger)':'var(--warning)'};">→ ${d.action}</div></div></div>`;});
+
+// AI attach by segment
+new Chart(document.getElementById('aiAttachChart'),{type:'bar',data:{
+  labels:['ENR Top 10 GCs','Mid-Market GCs','Owners','Specialty'],
+  datasets:[{data:[12,6,8,4],backgroundColor:['#7C3AED','#A78BFA','#A78BFA','#DDD6FE'],borderRadius:4,borderWidth:0}]
+},options:{...CO,indexAxis:'y',plugins:{...CO.plugins,tooltip:{...CO.plugins.tooltip,callbacks:{label:ctx=>'AI attach: '+ctx.raw+'%'}}},scales:{x:{...SYP,max:20},y:{grid:{display:false},ticks:{color:'#374151',font:{family:'Inter',size:11}}}}}});
+
+// Funnel — clarified with cumulative % + stage-to-stage
+const funnel=[
+  {l:'Qualified Accounts',p:100,n:4820,step:null},
+  {l:'First Meeting Held',p:41,n:1976,step:41},
+  {l:'Evaluated (Demo/POC)',p:22,n:1060,step:54},
+  {l:'Negotiating (Pricing)',p:14,n:675,step:64},
+  {l:'Closed Won',p:9,n:434,step:64},
+];
+const fe=document.getElementById('funnelEl');
+funnel.forEach(s=>{
+  const stepTxt = s.step!==null ? `<span style="font-size:10px;color:var(--text-4);">${s.step}% advance</span>` : `<span style="font-size:10px;color:var(--text-4);">entry stage</span>`;
+  fe.innerHTML+=`<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+    <div style="font-size:11.5px;color:var(--text-2);width:140px;text-align:right;flex-shrink:0;">${s.l}</div>
+    <div style="flex:1;height:24px;background:var(--bg);border-radius:4px;overflow:hidden;"><div style="width:${s.p}%;height:100%;background:var(--purple);opacity:${.25+s.p/130};border-radius:4px;display:flex;align-items:center;padding:0 8px;"><span style="font-size:10.5px;color:#fff;font-weight:600;">${s.p}%</span></div></div>
+    <div style="width:96px;text-align:right;"><span style="font-family:var(--mono);font-size:11px;color:var(--text-2);font-weight:600;">${s.n.toLocaleString()}</span><br>${stepTxt}</div>
+  </div>`;
+});
+
+// Geo
+new Chart(document.getElementById('geoChart'),{type:'bar',data:{
+  labels:['North America','EMEA','APAC / ANZ','Rest of World'],
+  datasets:[{data:[1128,118,54,22],backgroundColor:['#7C3AED','#A78BFA','#C4B5FD','#DDD6FE'],borderRadius:4,borderWidth:0}]
+},options:{...CO,indexAxis:'y',plugins:{...CO.plugins,tooltip:{...CO.plugins.tooltip,callbacks:{label:ctx=>'$'+ctx.raw+'M · '+((ctx.raw/1322)*100).toFixed(0)+'% of total'}}},scales:{x:SYM,y:{grid:{display:false},ticks:{color:'#374151',font:{family:'Inter',size:11}}}}}});
+</script>
+</body>
+</html>
